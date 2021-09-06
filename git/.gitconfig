@@ -1,0 +1,53 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Alexander Jackson
+	email = alexanderjackson@protonmail.com
+	signingkey = A42B03406392DB5C
+
+[core]
+	editor = /usr/local/bin/nvim
+	askpass = git-gui--askpass
+	pager = delta
+
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	recent = !git for-each-ref --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always|column -ts'|'
+	sync = !sh -c 'git stash && git checkout master && git pull upstream master && git push origin master'
+	amend = commit --amend --no-edit
+
+[color "status"]
+	untracked = blue
+
+[push]
+	default = current
+
+[pull]
+	rebase = false
+
+[commit]
+	verbose = true
+
+[format]
+	pretty = oneline
+
+[log]
+	abbrevCommit = true
+
+[interactive]
+	diffFilter = delta --color-only --line-numbers
+
+[delta]
+	features = decorations
+	whitespace-error-style = 22 reverse
+	plus-color = "#012800"
+	minus-color = "#340001"
+	syntax-theme = DarkNeon
+	side-by-side = true
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[init]
+	templatedir = ~/.config/git/templates
+	defaultBranch = master
