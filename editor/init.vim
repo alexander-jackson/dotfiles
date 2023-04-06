@@ -34,10 +34,6 @@ syntax enable
 " Make sure the backspace key works in Insert Mode to delete text
 set backspace=indent,eol,start
 
-" Make sure we are using a dark background and set the colourscheme to Hybrid
-set background=dark
-colorscheme hybrid
-
 " Sensible split options
 set splitright
 set splitbelow
@@ -185,6 +181,17 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()
+
+call plug#begin(stdpath('config') . '/colors')
+
+" Hybrid color scheme
+Plug 'w0ng/vim-hybrid', { 'as': 'hybrid' }
+
+call plug#end()
+
+" Ensure dark background and set the colorscheme to Hybrid post-install
+set background=dark
+colorscheme hybrid
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => PLUGIN SETTINGS

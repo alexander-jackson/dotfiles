@@ -2,7 +2,6 @@
 [user]
 	name = Alexander Jackson
 	email = alexanderjackson@protonmail.com
-	signingkey = A42B03406392DB5C
 
 [core]
 	editor = /usr/local/bin/nvim
@@ -48,6 +47,3 @@
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
-[init]
-	templatedir = ~/.config/git/templates
-	defaultBranch = master
