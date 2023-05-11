@@ -179,6 +179,16 @@ Plug 'rust-lang/rust.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 " Language server support
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Terraform language support
+Plug 'hashivim/vim-terraform'
+" JavaScript language support
+Plug 'pangloss/vim-javascript'
+" JSX/TSX language support
+Plug 'maxmellon/vim-jsx-pretty'
+" TypeScript language support
+Plug 'leafgarland/vim-typescript'
+" Autoformatting with `prettier` on save
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -248,6 +258,9 @@ nmap <leader>rn <Plug>(coc-rename)
 
 let g:zenmode_background = "dark"
 let g:zenmode_colorscheme = "hybrid"
+
+" Use the `node_modules` version of `prettier` for formatting
+let g:neoformat_try_node_exe = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FUNCTIONS AND CONDITIONALS
@@ -337,6 +350,26 @@ autocmd Filetype cpp nnoremap <F5> :make<CR>
 
 " JavaScript command for easily displaying the value of a variable
 autocmd Filetype javascript vnoremap pv yoconsole.log("<Esc>pA: " + <Esc>pA);<Esc>
+
+autocmd Filetype typescriptreact set expandtab
+autocmd Filetype typescriptreact set tabstop=2
+autocmd Filetype typescriptreact set softtabstop=2
+autocmd Filetype typescriptreact set shiftwidth=2
+autocmd Filetype typescriptreact set smarttab
+autocmd BufWritePre *.tsx Neoformat
+
+autocmd Filetype typescript set expandtab
+autocmd Filetype typescript set tabstop=2
+autocmd Filetype typescript set softtabstop=2
+autocmd Filetype typescript set shiftwidth=2
+autocmd Filetype typescript set smarttab
+autocmd BufWritePre *.ts Neoformat
+
+autocmd Filetype tf set expandtab
+autocmd Filetype tf set tabstop=2
+autocmd Filetype tf set softtabstop=2
+autocmd Filetype tf set shiftwidth=2
+autocmd Filetype tf set smarttab
 
 autocmd Filetype tex inoremap \` \texttt{}<Esc>i
 autocmd Filetype tex set tw=79
